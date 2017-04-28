@@ -1,13 +1,10 @@
-# AI-Final-Project-Three-Card-Pickup-Poker
-CS 4320/5314 Spring 2017 Final project
-
-AI Final Project:
-Three Card Pickup Poker
+# AI Final Project:
+## Three Card Pickup Poker
 
 Deadlines:
-•	Friday, April 28 – Initial test agent due
-•	Tuesday, May 2 – Results of First round discussed
-•	Friday, May 12 – Final agent/report submission
+   - Friday, April 28 – Initial test agent due
+   - Tuesday, May 2 – Results of First round discussed
+   - Friday, May 12 – Final agent/report submission
 
 Groups: You may work in groups of up to three students.  Turn in a single submission, clearly listing the students in the group.  For the final report you must include a brief statement of the contributions of each team member.  
 
