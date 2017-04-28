@@ -1,18 +1,18 @@
 # AI Final Project: Three Card Pickup Poker
 
-Deadlines:
+## Deadlines:
    - Friday, April 28 – Initial test agent due
    - Tuesday, May 2 – Results of First round discussed
    - Friday, May 12 – Final agent/report submission
 
 Groups: You may work in groups of up to three students.  Turn in a single submission, clearly listing the students in the group.  For the final report you must include a brief statement of the contributions of each team member.  
 
-Goals:
+## Goals:
    - Make a better 5-card Poker hand than your opponent.
    - Design a winning strategy that is robust to change and uncertainty.
    - Consistently win round-robin tournaments against all other agents.
 
-Rules:
+## Rules:
    - Each player has 2 private cards from a standard 52-card deck.
    - Players will then take turns traversing a connected graph containing cards.
    - Games will be procedurally generated based on a set of parameters:
@@ -48,9 +48,11 @@ One pair | 58,627,800 | 43.8%| 82.6% | 1.28 : 1
 No pair | 23,294,460 | 17.4% | 100% | 4.74 : 1
 Total | 133,784,560 | 100% | 100% |0 : 1
 
-Example Game:
+## Example Game:
+
 ![alt tag](Screenshots/example_of_game.png "Home") 
-Deliverables
+
+## Deliverables
 
 To submit agents, you should submit java files that are documented subclasses of the Player class in the provided source code. Do NOT submit a full java project, only the source code for your agents.
 
@@ -58,14 +60,14 @@ For the initial test submission, you only need to submit a single functional age
 
 For the final submission, you should implement and evaluate at least four (4) different agents for playing this game, ranging from simple agents that use basic heuristics to more sophisticated agents.  At least two of these agents should make use of the techniques we have studied in the course (e.g., minimax search, UCT, genetic algorithms, reinforcement learning, etc.) You will identify your best agent to participate in the final tournament, based on your evaluation of the agents you have developed. 
 
- You should turn in:
-•	The source code for four agents you have developed and tested, with varying levels of sophistication 
-•	A report that describes your agents in detail, and provides the results of your own evaluation of the strength of these agents based on running your own tournaments. 
-•	Your report should clearly identify the agent you believe is the best; we will use this agent to participate in the final class tournament 
+You should turn in:
+   - The source code for four agents you have developed and tested, with varying levels of sophistication 
+   - A report that describes your agents in detail, and provides the results of your own evaluation of the strength of these agents based on running your own tournaments. 
+   - Your report should clearly identify the agent you believe is the best; we will use this agent to participate in the final class tournament 
 
 Evaluation Criteria:
-•	Clean and well documented code
-•	Clear explanations of agent strategies and report of experimental evaluation
-•	Creative, non-trivial agents the implement intelligent behaviors
-•	Use of AI methods from the course
-•	Agent performs well in tournaments against other agents
+   - Clean and well documented code
+   - Clear explanations of agent strategies and report of experimental evaluation
+   - Creative, non-trivial agents the implement intelligent behaviors
+   - Use of AI methods from the course
+   - Agent performs well in tournaments against other agents
