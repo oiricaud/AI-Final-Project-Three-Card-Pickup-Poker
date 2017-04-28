@@ -49,7 +49,7 @@ No pair | 23,294,460 | 17.4% | 100% | 4.74 : 1
 Total | 133,784,560 | 100% | 100% |0 : 1
 
 Example Game:
-
+![alt tag](Screenshots/example_of_game.png "Home") 
 Deliverables
 
 To submit agents, you should submit java files that are documented subclasses of the Player class in the provided source code. Do NOT submit a full java project, only the source code for your agents.
