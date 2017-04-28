@@ -1,5 +1,4 @@
-# AI Final Project:
-## Three Card Pickup Poker
+# AI Final Project: Three Card Pickup Poker
 
 Deadlines:
    - Friday, April 28 – Initial test agent due
@@ -9,52 +8,49 @@ Deadlines:
 Groups: You may work in groups of up to three students.  Turn in a single submission, clearly listing the students in the group.  For the final report you must include a brief statement of the contributions of each team member.  
 
 Goals:
-•	Make a better 5-card Poker hand than your opponent.
-•	Design a winning strategy that is robust to change and uncertainty.
-•	Consistently win round-robin tournaments against all other agents.
+   - Make a better 5-card Poker hand than your opponent.
+   - Design a winning strategy that is robust to change and uncertainty.
+   - Consistently win round-robin tournaments against all other agents.
 
 Rules:
-•	Each player has 2 private cards from a standard 52-card deck.
-•	Players will then take turns traversing a connected graph containing cards.
-•	Games will be procedurally generated based on a set of parameters:
-o	Number of nodes
-o	Graph connectivity
-o	Amount of uncertainty
-o	Turn limit
-•	Max of 48 nodes (4 cards have been dealt) but expect graphs to be much smaller.
-•	Players will start at separate nodes and can see the entire graph.
-•	Players can only move along one edge each turn.
-•	Nodes contains possible cards only one is the actual card (actual does not change).
-•	On their turn a player can decide to pick up the node’s card added to their hand.
-•	Picking up the card removes it from the graph and is shown to all players.
-•	A player must pick up 3 cards by the end of the game or automatically lose.
-•	Players will not be allowed to pick up more than 3 cards.
-•	Parameters can only change between tournaments not during a match.
+   - Each player has 2 private cards from a standard 52-card deck.
+   - Players will then take turns traversing a connected graph containing cards.
+   - Games will be procedurally generated based on a set of parameters:
+        - Number of nodes
+        - Graph connectivity
+        - Amount of uncertainty
+        - Turn limit
+   - Max of 48 nodes (4 cards have been dealt) but expect graphs to be much smaller.
+   - Players will start at separate nodes and can see the entire graph.
+   - Players can only move along one edge each turn.
+   - Nodes contains possible cards only one is the actual card (actual does not change).
+   - On their turn a player can decide to pick up the node’s card added to their hand.
+   - Picking up the card removes it from the graph and is shown to all players.
+   - A player must pick up 3 cards by the end of the game or automatically lose.
+   - Players will not be allowed to pick up more than 3 cards.
+   - Parameters can only change between tournaments not during a match.
 
 For fairness each game will be played twice where agents swap starting positions and starting hands. They will not be allowed a history of the previous match.
 
-
-
-
-
-
-
 Standard Poker Rankings - http://en.wikipedia.org/wiki/Poker_probability
-Hand
-Frequency
-Probability
-Cumulative
-Odds
-Royal flush
-4,324
-0.0032%
-0.0032%
-30,939 : 1
-Straight flush (excl. royal flush)
-37,260
-0.0279%
-0.0311%
-3,589.6 : 1
+
+Hand | Frequency | Probability | Cumaltive | Odds
+---- | --------- | ----------  | --------- | ----
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Straight flush (excl. royal flush) | 37,260 | 0.0279% | 0.0311% | 3,589.6 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+Royal flush | 4,324 | 0.0032% | 0.0032% | 30,939 : 1
+
+
+
+
+
+
 Four of a kind
 224,848
 0.168%
