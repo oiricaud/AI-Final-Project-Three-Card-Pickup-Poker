@@ -77,32 +77,45 @@ public class HakaniPlayer extends Player{
      * Player logic goes here
      */
     public Action makeAction() {
-        System.out.println("    Current Hand " + hand.toString());
-        Card largestHandCard = hand.getHoleCard(hand.size()-1);
+        System.out.println("Hakani's hand: " + hand.toString());
         int maxIndex = 0;
-        System.out.println("    Largest deck card " + largestHandCard);
+        int kind = 0;
         ArrayList<Card> possibleCards = new ArrayList<Card>();
         // Iterate through each neighbor
         int[] neighbors = new int[graph[currentNode].getNeighborAmount()];
         for(int i = 0; i < neighbors.length; i++){
             possibleCards = graph[currentNode].getNeighbor(i).getPossibleCards();
-            System.out.println("    Neighbor " + i + " cards " + graph[currentNode].getNeighbor(i).getPossibleCards());
+            System.out.println("\t \t Neighbor " + i + " cards " + graph[currentNode].getNeighbor(i).getPossibleCards
+                    ());
             if(possibleCards != null){
                 for(int j = 0; j < possibleCards.size(); j++) {
                     // Evaluate each card here
-                    System.out.println("        Rank for each card " + j + ", " + possibleCards.get(j).getRank());
+                    System.out.print("\t \t Rank for card " + j + ", " + possibleCards.get(j).getRank());
                     // Iterate through your current hand
                     for(int h = 0; h < hand.size(); h++) {
-                        // Find a pair
+                        // Find a rank pair, add the value of the pair to the neighbor
                         if (possibleCards.get(j).getRank() == hand.getHoleCard(h).getRank()){
-                            System.out.println("We found a PAIR");
                             neighbors[i] += possibleCards.get(j).getRank();
+                            System.out.print("\t \t \t Pair Found at node "  + i + " " + neighbors[i]);
+                        }
+                        // If not pair found, find card of the same kind, add the value of the pair to the neighbor
+                        else if ( possibleCards.get(j).getSuit() == hand.getHoleCard(h).getSuit()){
+                            neighbors[i] += possibleCards.get(j).getSuit();
+                            System.out.print("\t \t \t Pair Suit found at node "  + i + " " + neighbors[i]);
+                        }
+                        if (neighbors[maxIndex] < neighbors[i]) {
+                            maxIndex = i;
+                            System.out.println("\t \t \t \t Max Index: " + maxIndex);
+                            System.out.println("\t \t \t \t neighbors[maxIndex]: " + neighbors[maxIndex]);
+                            System.out.println("\t \t \t \t neighbors[i]: " + neighbors[i]);
                         }
                     }
+                    /*
                     // Find the highest rank value neighbors
                     if (neighbors[maxIndex] < neighbors[i]) {
                         maxIndex = i;
                     }
+                    */
                 }
             }
         }
