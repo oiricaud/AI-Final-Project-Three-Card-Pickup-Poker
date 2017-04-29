@@ -77,23 +77,34 @@ public class HakaniPlayer extends Player{
      * Player logic goes here
      */
     public Action makeAction() {
+        System.out.println("    Current Hand " + hand.toString());
+        Card largestHandCard = hand.getHoleCard(hand.size()-1);
+        int maxIndex = 0;
+        System.out.println("    Largest deck card " + largestHandCard);
+        ArrayList<Card> possibleCards = new ArrayList<Card>();
         // Iterate through each neighbor
         int[] neighbors = new int[graph[currentNode].getNeighborAmount()];
         for(int i = 0; i < neighbors.length; i++){
-            ArrayList<Card> possibleCards = graph[currentNode].getNeighbor(i).getPossibleCards();
+            possibleCards = graph[currentNode].getNeighbor(i).getPossibleCards();
             System.out.println("    Neighbor " + i + " cards " + graph[currentNode].getNeighbor(i).getPossibleCards());
             if(possibleCards != null){
                 for(int j = 0; j < possibleCards.size(); j++) {
                     // Evaluate each card here
-                    System.out.println("        Rank for neighbor " + j + ", " + possibleCards.get(j).getRank());
-                    neighbors[i] += possibleCards.get(j).getRank();
+                    System.out.println("        Rank for each card " + j + ", " + possibleCards.get(j).getRank());
+                    // Iterate through your current hand
+                    for(int h = 0; h < hand.size(); h++) {
+                        if (possibleCards.get(j).getRank() == hand.getHoleCard(h).getRank()){
+                            System.out.println("We found a PAIR");
+                            neighbors[i] += possibleCards.get(j).getRank();
+                        }
+                    }
+                    // Find the highest rank value neighbors
+                    if (neighbors[maxIndex] < neighbors[i]) {
+                        maxIndex = i;
+                    }
                 }
             }
         }
-        int maxIndex = 0;
-        for(int k = 1; k < neighbors.length; k++)
-            if(neighbors[maxIndex] < neighbors[k])
-                maxIndex = k;
         int neighbor = graph[currentNode].getNeighbor(maxIndex).getNodeID();
         return new Action(ActionType.PICKUP, neighbor);
     }
