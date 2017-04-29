@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class GameMaster {
 
-	private static boolean verbose = false; //Set to false if you do not want much detail printed to console
-	private static int numGames = 25; //use a small number for quick tests, a large one to be comprehensive
+	private static boolean verbose = true; //Set to false if you do not want much detail printed to console
+	private static int numGames = 1; //use a small number for quick tests, a large one to be comprehensive
 	private static int parameterSetting = 1; //see changeParameters()
 	
 	/**
@@ -24,12 +24,13 @@ public class GameMaster {
 	public static Player getPlayer(String name) {
 		if (name.equalsIgnoreCase("TestPlayer"))
 			return new TestPlayer();
-		else if(name.equalsIgnoreCase("MaxPower"))
-			return new MaxPower();
-		else if(name.equalsIgnoreCase("HankScorpio"))
-			return new HankScorpio();
+		//else if(name.equalsIgnoreCase("MaxPower"))
+			//return new MaxPower();
+		//else if(name.equalsIgnoreCase("HankScorpio"))
+			//return new HankScorpio();
 		////////////////////////////////////
-		//your player here
+		else if(name.equals("HakaniPlayer"))
+			return new HakaniPlayer();
 		////////////////////////////////////
         /*else if(name.equalsIgnoreCase("YOUR AGENT HERE")
 		 * 	return new StudentAgent();
@@ -47,10 +48,10 @@ public class GameMaster {
 		generateGraphs(numGames);
 		ArrayList<Player> players = new ArrayList<Player>();
 		players.add(new TestPlayer());
-		players.add(new MaxPower());
-		players.add(new HankScorpio());
+		//players.add(new MaxPower());
+		//players.add(new HankScorpio());
 		////////////////////////////////////
-		//your player here
+		players.add(new HakaniPlayer());
 		////////////////////////////////////
 
 		float[] ranks = new float[players.size()];

@@ -1,7 +1,6 @@
 package CardPickup;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  *
@@ -29,7 +28,7 @@ import java.util.Random;
  * @version 04/28/2017
  */
 public class HakaniPlayer extends Player{
-    protected final String newName = "HankScorpio"; //Overwrite this variable in your player subclass
+    protected final String newName = "HakaniPlayer"; //Overwrite this variable in your player subclass
 
     /**Do not alter this constructor as nothing has been initialized yet. Please use initialize() instead*/
     public HakaniPlayer() {
@@ -52,10 +51,8 @@ public class HakaniPlayer extends Player{
      */
     protected void opponentAction(int opponentNode, boolean opponentPickedUp, Card c){
         oppNode = opponentNode;
-        if(opponentPickedUp) {
+        if(opponentPickedUp)
             oppLastCard = c;
-            graph[opponentNode].clearPossibleCards();
-        }
         else
             oppLastCard = null;
     }
@@ -71,36 +68,32 @@ public class HakaniPlayer extends Player{
         this.currentNode = currentNode;
         if(c!=null) {
             addCardToHand(c);
-            graph[currentNode].clearPossibleCards();
         }
-
+        graph[currentNode].clearPossibleCards();
     }
+
 
     /**
      * Player logic goes here
      */
     public Action makeAction() {
-        int[] sums = new int[graph[currentNode].getNeighborAmount()];
-        for(int i = 0; i < sums.length; i++){
-            ArrayList<Card> possible = graph[currentNode].getNeighbor(i).getPossibleCards();
-            if(possible.size()!=0){
-                for(int j = 0; j < possible.size(); j++)
-                    if(possible.get(j).getRank()==1)//ace
-                        sums[i] += 14;
-                    else
-                        sums[i] += possible.get(j).getRank();
+        // Iterate through each neighbor
+        int[] neighbors = new int[graph[currentNode].getNeighborAmount()];
+        for(int i = 0; i < neighbors.length; i++){
+            ArrayList<Card> possibleCards = graph[currentNode].getNeighbor(i).getPossibleCards();
+            System.out.println("    Neighbor " + i + " cards " + graph[currentNode].getNeighbor(i).getPossibleCards());
+            if(possibleCards != null){
+                for(int j = 0; j < possibleCards.size(); j++) {
+                    // Evaluate each card here
+                    System.out.println("        Rank for neighbor " + j + ", " + possibleCards.get(j).getRank());
+                    neighbors[i] += possibleCards.get(j).getRank();
+                }
             }
         }
         int maxIndex = 0;
-        for(int k = 1; k < sums.length; k++)
-            if(sums[maxIndex] < sums[k])
+        for(int k = 1; k < neighbors.length; k++)
+            if(neighbors[maxIndex] < neighbors[k])
                 maxIndex = k;
-        if(graph[currentNode].getNeighbor(maxIndex).getPossibleCards().size()==0) {
-            Random r = new Random();
-            //int neighbor = graph[currentNode].getNeighbor(maxIndex).getNodeID();
-            int neighbor = graph[currentNode].getNeighbor(r.nextInt(graph[currentNode].getNeighborAmount())).getNodeID();
-            return new Action(ActionType.MOVE, neighbor);
-        }
         int neighbor = graph[currentNode].getNeighbor(maxIndex).getNodeID();
         return new Action(ActionType.PICKUP, neighbor);
     }
