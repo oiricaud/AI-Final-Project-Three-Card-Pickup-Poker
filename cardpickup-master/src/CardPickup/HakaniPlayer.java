@@ -93,6 +93,7 @@ public class HakaniPlayer extends Player{
                     System.out.println("        Rank for each card " + j + ", " + possibleCards.get(j).getRank());
                     // Iterate through your current hand
                     for(int h = 0; h < hand.size(); h++) {
+                        // Find a pair
                         if (possibleCards.get(j).getRank() == hand.getHoleCard(h).getRank()){
                             System.out.println("We found a PAIR");
                             neighbors[i] += possibleCards.get(j).getRank();
