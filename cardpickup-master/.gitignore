@@ -11,4 +11,4 @@ build/jar/CardPickup.jar
 *.html
 doc/package-list
 doc/script.js
-*.css
+*.css.idea
